@@ -2,13 +2,13 @@
     "name": "CCT",
     "experim_name": "CCT",
     "n_gpu": 1,
-    "n_labeled_examples": 1464,
+    "n_labeled_examples": 2126,
     "diff_lrs": true,
     "ramp_up": 0.1,
     "unsupervised_w": 30,
     "ignore_index": 255,
     "lr_scheduler": "Poly",
-    "use_weak_lables":false,
+    "use_weak_lables":false, 
     "weakly_loss_w": 0.4,
     "pretrained": true,
 
@@ -57,38 +57,38 @@
 
 
     "train_supervised": {
-        "data_dir": "VOCtrainval_11-May-2012",
-        "batch_size": 10,
-        "crop_size": 320,
+        "data_dir": "/share/DEEPLEARNING/datasets/voc2012",
+        "batch_size": 4,
+        "crop_size": 480,
         "shuffle": true,
-        "base_size": 400,
+        "base_size": 520,
         "scale": true,
         "augment": true,
         "flip": true,
         "rotate": false,
         "blur": false,
         "split": "train_supervised",
-        "num_workers": 8
+        "num_workers": 4
     },
 
     "train_unsupervised": {
-        "data_dir": "VOCtrainval_11-May-2012",
+        "data_dir": "/share/DEEPLEARNING/datasets/voc2012",
         "weak_labels_output": "pseudo_labels/result/pseudo_labels",
-        "batch_size": 10,
-        "crop_size": 320,
+        "batch_size": 4,
+        "crop_size": 480,
         "shuffle": true,
-        "base_size": 400,
+        "base_size": 520,
         "scale": true,
         "augment": true,
         "flip": true,
         "rotate": false,
         "blur": false,
         "split": "train_unsupervised",
-        "num_workers": 8
+        "num_workers": 4
     },
 
     "val_loader": {
-        "data_dir": "VOCtrainval_11-May-2012",
+        "data_dir": "/share/DEEPLEARNING/datasets/voc2012",
         "batch_size": 1,
         "val": true,
         "split": "val",
@@ -98,14 +98,14 @@
 
     "trainer": {
         "epochs": 80,
-        "save_dir": "saved/",
+        "save_dir": "/share/homes/karmimy/equiv/save_model/rot_equiv_CCT/",
         "save_period": 5,
   
         "monitor": "max Mean_IoU",
         "early_stop": 10,
         
         "tensorboardX": true,
-        "log_dir": "saved/",
+        "log_dir": "/share/homes/karmimy/equiv/save_model/rot_equiv_CCT/log_dir/",
         "log_per_iter": 20,
 
         "val": true,
